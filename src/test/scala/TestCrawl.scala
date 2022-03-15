@@ -16,7 +16,7 @@ class TestCrawl extends AsyncFreeSpec with AsyncIOSpec with Matchers {
 
     override def get(url: URL): IO[Either[Throwable, Document]] = {
       url.toString match {
-        case googleUrl => IO.pure(browser.parseString("<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>google title</title>\n</head>\n<body>\n\n</body>\n</html>")).attempt
+        case googleUrl => IO.delay(browser.parseString("<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>google title</title>\n</head>\n<body>\n\n</body>\n</html>")).attempt
       }
     }
   }
